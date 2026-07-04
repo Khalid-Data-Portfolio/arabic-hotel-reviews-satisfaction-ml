@@ -53,4 +53,4 @@ The public dataset does not contain a date column for each review, so a true inc
 - Model feature importance: `reports/model_feature_importance.csv`
 - Sample predictions: `reports/sample_predictions.csv`
 - English charts: `reports/figures/*_en.png`
-- Saved model: `models/arabic_hotel_satisfaction_model.joblib`
+- Saved model: excluded from the public portfolio version and retained in the private implementation.
