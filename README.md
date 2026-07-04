@@ -1,4 +1,4 @@
-# تحليل رضا عملاء الفنادق العربية باستخدام تعلم الآلة
+# Arabic Hotel Reviews Satisfaction Analysis with Machine Learning
 
 ## Project Overview
 
