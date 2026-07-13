@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تحليل رضا عملاء الفنادق | لوحة تعلّم الآلة</title>
+    <meta name="description" content="لوحة تفاعلية لتحليل رضا عملاء الفنادق من مراجعات عربية حقيقية وأداء نموذج تعلّم الآلة." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <div class="brand">
+          <h1>تحليل رضا عملاء الفنادق</h1>
+          <p>لوحة تفاعلية &middot; تحليلات مراجعات الفنادق العربية ونتائج نموذج التصنيف</p>
+        </div>
+        <span class="live-pill"><span class="dot"></span> معاينة مباشرة &middot; بيانات عامة</span>
+      </header>
+
+      <section class="filters" aria-label="عوامل التصفية">
+        <div class="filter">
+          <label for="minReviewsFilter">الحد الأدنى للمراجعات</label>
+          <select id="minReviewsFilter" class="filter-select"></select>
+        </div>
+        <button id="clearFiltersBtn" class="clear-btn" type="button">إعادة الضبط</button>
+      </section>
+
+      <section class="kpi-grid" aria-label="المؤشرات الرئيسية">
+        <article class="kpi-card">
+          <div class="label">متوسط التقييم</div>
+          <div class="value" id="avgRatingKpi">—</div>
+          <div class="sub" id="avgRatingSub">متوسط تقييمات الفنادق</div>
+        </article>
+        <article class="kpi-card">
+          <div class="label">نسبة الرضا العالي</div>
+          <div class="value" id="highSatKpi">—</div>
+          <div class="sub" id="highSatSub">متوسط حصة الرضا المرتفع</div>
+        </article>
+        <article class="kpi-card">
+          <div class="label">عدد الفنادق</div>
+          <div class="value" id="hotelsKpi">—</div>
+          <div class="sub">العدد الموثّق في مجموعة البيانات (٩٧٦)</div>
+        </article>
+        <article class="kpi-card">
+          <div class="label">عدد التقييمات</div>
+          <div class="value" id="reviewsKpi">—</div>
+          <div class="sub">إجمالي المراجعات الموثّق (٩٣٬٦٣١)</div>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="panel panel-wide">
+          <h2>أفضل الفنادق حسب التقييم</h2>
+          <p class="hint">أعلى ١٢ فندقًا بحسب متوسط التقييم (خاضع لعامل الحد الأدنى للمراجعات). مرّر فوق العمود لرؤية عدد المراجعات وحصة الرضا.</p>
+          <svg id="chartTopHotels" class="chart"></svg>
+        </article>
+        <article class="panel">
+          <h2>الرضا حسب مدة الإقامة</h2>
+          <p class="hint">متوسط التقييم وحصة الرضا لكل شريحة من مدة الإقامة.</p>
+          <svg id="chartStay" class="chart"></svg>
+        </article>
+        <article class="panel">
+          <h2>توزيع التقييمات</h2>
+          <p class="hint">عدد المراجعات حسب مجموعة التقييم (منخفض أو مرتفع).</p>
+          <svg id="chartRatingDist" class="chart"></svg>
+        </article>
+        <article class="panel panel-wide">
+          <h2>أهم المصطلحات في النموذج</h2>
+          <p class="hint">أبرز المصطلحات المؤثرة في نموذج التصنيف (حسب قيمة المعامل المطلقة، أعلى ١٢ مصطلحًا).</p>
+          <div id="impactList"></div>
+        </article>
+      </section>
+
+      <h2 class="section-title">أداء نموذج تعلّم الآلة</h2>
+      <article class="panel">
+        <p class="hint">مقاييس أداء النموذج على بيانات الاختبار. أعلى قيمة ROC AUC مُبرزة.</p>
+        <div id="modelTable"></div>
+      </article>
+
+      <footer class="footer">
+        لوحة عامة &middot; مبنية من مجموعة مراجعات فنادق عربية حقيقية &middot; بلا بيانات شخصية ولا أوزان نموذج منشورة.
+      </footer>
+    </div>
+
+    <div id="chartTooltip" class="chart-tooltip" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
